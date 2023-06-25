@@ -4,7 +4,7 @@
 <div id="main-wrapper">
          <header class="header">
             @include("nav")
-            <div class="header-body" style="background: url('storage/palaciocar_banner.jpg') top center no-repeat; background-size: cover;">
+            <div class="header-body" style="background: url('storage/images/cars/palaciocar_banner.jpg') top center no-repeat; background-size: cover;">
                <div class="header-overlay"></div>
                <div class="container">
                   <h1>RENTAL <span style="color:#f4d40c;">CAR</span></h1>

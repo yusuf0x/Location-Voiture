@@ -5,7 +5,7 @@
    <header class="header">
    @include("nav")
    </header>
-   <div class="inner-page-banner" style="background: url('storage/palaciocar_banner.jpg') center center no-repeat; background-size: cover;">
+   <div class="inner-page-banner" style="background: url('storage/images/cars/palaciocar_banner.jpg') center center no-repeat; background-size: cover;">
       <div class="rq-overlay"></div>
       <div class="container">
          <div class="rq-title-container bredcrumb-title text-center">
