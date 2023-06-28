@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "akaunting/laravel-money": "^4.0",
+        "bezhansalleh/filament-language-switch": "^1.0",
         "filament/filament": "^2.17",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
@@ -28,7 +30,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Http/Helpers/CurrencyHelper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

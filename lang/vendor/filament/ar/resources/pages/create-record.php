@@ -29,5 +29,5 @@ return [
     'messages' => [
         'created' => 'تمت الإضافة',
     ],
-
+   
 ];

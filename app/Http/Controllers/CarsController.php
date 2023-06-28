@@ -19,7 +19,8 @@ class CarsController extends Controller
             "cars" => $cars,
             "startdate"=>$startdate,
             "enddate"=>$enddate,
-            "age"=>$age
+            "age"=>$age,
+            "all_cars" => $cars = DB::table("cars")->get()
         ];
         return view('cars')->with("data",$data);
     }

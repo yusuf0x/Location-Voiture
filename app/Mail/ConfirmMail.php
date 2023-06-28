@@ -14,12 +14,15 @@ class ConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
     private Array $data;
+    private $token ;
+    
     /**
      * Create a new message instance.
      */
-    public function __construct(Array $data)
+    public function __construct(Array $data,$token)
     {
         $this->data = $data;
+        $this->token = $token;
     }
 
     /**
@@ -38,9 +41,15 @@ class ConfirmMail extends Mailable
      */
     public function content(): Content
     {
+        $verificationUrl = route('reservation.verify', $this->token);
+        $checkstatus = route("reservation.status",$this->data['reservation']);
         return new Content(
             view: 'emails.confirm',
-            with:["data" => $this->data]
+            with:[
+                "data" => $this->data,
+                "verificationUrl"=>$verificationUrl,
+                "checkstatus" => $checkstatus
+            ]
         );
     }
 

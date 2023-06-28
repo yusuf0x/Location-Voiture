@@ -9,10 +9,10 @@
       <div class="rq-overlay"></div>
       <div class="container">
          <div class="rq-title-container bredcrumb-title text-center">
-            <h2 class="rq-title">Contactez-nous</h2>
+            <h2 class="rq-title">{{__('Contact us')}}</h2>
             <ol class="breadcrumb rq-subtitle">
-               <li><a href="/">Accueil</a></li>
-               <li class="active">Contactez-nous</li>
+               <li><a href="/">{{__('home')}}</a></li>
+               <li class="active">{{__('Contact us')}}</li>
             </ol>
          </div>
       </div>
@@ -25,14 +25,14 @@
                   <div class="col-md-4">
                      <div class="grid-block-single">
                         <i class="icon_mail_alt"></i>
-                        <h3>E-mail</h3>
+                        <h3>{{__('Email')}}</h3>
                         <p><a href="mailto:contact@palaciocar.com">contact@rentalcar.com</a></p>
                      </div>
                   </div>
                   <div class="col-md-4">
                      <div class="grid-block-single">
                         <i class="icon_pin_alt"></i>
-                        <h3>Adresse</h3>
+                        <h3>{{__('Address')}}</h3>
                         <p>Aéroport Casablanca Mohammed V,</p>
                         <p>Nouasseur 29003</p>
                      </div>
@@ -40,7 +40,7 @@
                   <div class="col-md-4">
                      <div class="grid-block-single">
                         <i class="icon_mobile"></i>
-                        <h3>Téléphone</h3>
+                        <h3>{{__('Phone')}}</h3>
                         <p><a href="tel:+"># </a></p>
                         <p><a href="tel:+"># </a></p>
                      </div>

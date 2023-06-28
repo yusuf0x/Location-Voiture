@@ -11,29 +11,29 @@
    </header>
 </div>
 <div class="wrapper">
-        <div class="head">Connexion</div>
+        <div class="head">{{__('login')}}</div>
         <form action="/login" method="POST">
             @csrf
             <div class="field email">
                 <div class="input-area">
-                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="text" name="email" placeholder="{{__('Email')}}">
                     <i class="icon fa fa-envelope"></i>
                     <i class="error error-icon fa fa-exclamation-circle"></i>
                 </div>
-                <div class="error error-txt">L'e-mail ne peut pas être vide</div>
+                <div class="error error-txt">{{__('Email cannot be empty.')}}</div>
             </div>
             <div class="field password">
                 <div class="input-area">
-                    <input type="password" name="password" placeholder="Mot de passe">
+                    <input type="password" name="password" placeholder="{{__('Password')}}">
                     <i class="icon fa fa-lock"></i>
                     <i class="error error-icon fa fa-exclamation-circle"></i>
                 </div>
-                <div class="error error-txt">Le mot de passe ne peut pas être vide</div>
+                <div class="error error-txt">{{__('Password cannot be empty')}}</div>
             </div>
-            <div class="pass-txt"><a href="#">Mot de passe oublié ?</a></div>
-            <input type="submit" value="Connexion">
+            <div class="pass-txt"><a href="#">{{__('Forgot your password ?')}}</a></div>
+            <input type="submit" value="{{__('login')}}">
         </form>
-        <div class="sign-txt">Vous n’avez pas de compte?<a href="/register">Inscrivez-vous</a></div>
+        <div class="sign-txt">{{__('You do not have an account?')}}<a href="/register">{{__('Sign up')}}</a></div>
 </div>
 
 @endsection

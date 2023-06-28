@@ -17,9 +17,12 @@ class Reservation extends Model
         "etat_reservation",
         "totalttc",
         "car_id",
-        "user_id"
+        "user_id",
+        'verification_token', 'is_verified',
     ];
-
+    protected $casts = [
+        'is_verified' => 'boolean',
+    ];
     public function car()
     {
         return $this->belongsTo(Car::class);

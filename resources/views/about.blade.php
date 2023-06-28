@@ -10,10 +10,10 @@
          <div class="rq-overlay"></div>
          <div class="container">
             <div class="rq-title-container bredcrumb-title text-center">
-               <h2 class="rq-title">Qui sommes-nous ?</h2>
+               <h2 class="rq-title">{{__('WHO ARE WE ?')}}</h2>
                <ol class="breadcrumb rq-subtitle">
-                  <li><a href="#">Accueil</a></li>
-                  <li class="active">Qui sommes-nous ?</li>
+                  <li><a href="#">{{__('home')}}</a></li>
+                  <li class="active">{{__('WHO ARE WE ?')}}</li>
                </ol>
             </div>
          </div>
@@ -29,7 +29,7 @@
                      <div class="col-md-8">
                         <div class="about-us-text">
                            <p style="text-align: justify;">
-                              CAR RENTAL est une Agence de location de voitures au Maroc. depuis 2016, Spécialisée dans la location de voitures à usage personnel, professionnel. la qualité de notre service, l&#039;amabilité de nos agents et le bon état de nos voitures sont les atouts qui nous distinguent.
+                              {{__('CAR RENTAL is a car rental agency at Mohammed V International Airport in Casablanca. since 2016, Specialized in the rental of cars for personal and professional use. the quality of our service, the friendliness of our agents and the good condition of our cars are the assets that set us apart.')}}
                            </p>
                         </div>
                      </div>
@@ -38,7 +38,7 @@
                <div class="about-us-content-single">
                   <div class="row">
                      <div class="col-md-4">
-                        <h2 class="brand-title">Contactez-nous<span class="dot">.</span></h2>
+                        <h2 class="brand-title">{{__('Contact us')}}<span class="dot">.</span></h2>
                      </div>
                      <div class="col-md-8">
                         <div class="contact-single">

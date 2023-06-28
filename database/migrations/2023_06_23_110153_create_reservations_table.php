@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("totalttc");
             $table->dateTime("date_debut");
             $table->dateTime("date_fin");
+            $table->string('verification_token')->nullable();
+            $table->boolean('is_verified')->default(false);
             $table->unsignedBigInteger('car_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign("car_id")

@@ -324,6 +324,16 @@
                                        Kilométrage illimite<br />
                                        Livraison  et retour de la voiture aéroport  / port / hôtel / gare TGV
                                     </p>
+                                    <p>
+                                       <a href="{{ $verificationUrl }}" target="_blank" rel="noopener noreferrer">
+                                             Verify Reservation
+                                       </a>
+                                    </p>
+                                    <p>
+                                       <a href="{{ $checkstatus }}" target="_blank" rel="noopener noreferrer">
+                                             Check Status
+                                       </a>
+                                    </p>
                                  </td>
                               </tr>
                            </table>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="csrf-token" content="">
-<title>CAR RENTAL - Le leader de location de voiture à Aéroport international Mohammed V de Casablanca </title>
+<title>{{__('CAR RENTAL - The leader in car rental at Casablanca Mohammed V International Airport')}} </title>
 
 <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="{{Vite::asset('resources/css/style.css')}}">

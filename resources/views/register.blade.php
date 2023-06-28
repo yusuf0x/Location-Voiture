@@ -6,7 +6,7 @@
 @section("body")
 <div id="main-wrapper">
    <header class="header">
-      <nav class="navbar navbar-default" id="sticker">
+      <!-- <nav class="navbar navbar-default" id="sticker">
          <div class="container">
             <div class="navbar-header">
                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -49,41 +49,42 @@
                </ul>
             </div>
          </div>
-      </nav>
+      </nav> -->
+      @include("nav")
    </header>
 </div>
 <div class="wrapper">
-        <div class="head">Créer mon compte</div>
+        <div class="head">{{__('create my account')}}</div>
         <form action="/register" method="post">
                @csrf
             <div class="field name">
                 <div class="input-area">
-                    <input type="text" name="name" placeholder="Nom d'utilisateur">
+                    <input type="text" name="name" placeholder="{{__('username')}}">
                     <i class="icon fa fa-user"></i>
                     <i class="error error-icon fa fa-exclamation-circle"></i>
                 </div>
-                <div class="error error-txt">Le nom ne peut pas être vide</div>
+                <div class="error error-txt">{{__('Name cannot be empty')}}</div>
             
             </div>
             <div class="field email">
                 <div class="input-area">
-                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="email" name="email" placeholder="{{__('Email')}}">
                     <i class="icon fa fa-envelope"></i>
                     <i class="error error-icon fa fa-exclamation-circle"></i>
                 </div>
-                <div class="error error-txt">L'e-mail ne peut pas être vide</div>
+                <div class="error error-txt">{{__('Email cannot be empty.')}}</div>
             </div>
             <div class="field password">
                 <div class="input-area">
-                    <input type="password" name="password" placeholder="Mot de passe">
+                    <input type="password" name="password" placeholder="{{__('Password')}}">
                     <i class="icon fa fa-lock"></i>
                     <i class="error error-icon fa fa-exclamation-circle"></i>
                 </div>
-                <div class="error error-txt">Le mot de passe ne peut pas être vide</div>
+                <div class="error error-txt">{{__('Password cannot be empty')}}</div>
             </div>
-            <input type="submit" value="Créer un compte">
+            <input type="submit" value="{{__('Create an account')}}">
         </form>
-        <div class="sign-txt">Vous disposez déjà d’un compte? <a href="/login">Connexion</a></div>
+        <div class="sign-txt">{{__('Already have an account?')}} <a href="/login">{{__('login')}}</a></div>
 </div>
 
 @endsection

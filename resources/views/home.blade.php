@@ -8,39 +8,39 @@
                <div class="header-overlay"></div>
                <div class="container">
                   <h1>RENTAL <span style="color:#f4d40c;">CAR</span></h1>
-                  <p>Location de voitures à Aéroport international Mohammed V de Casablanca</p>
+                  <p>{{_('Rental cars at Mohammed V Casablanca International Airport')}}</p>
                   <form action="/cars" method="GET">
                      <div class="rq-search-container">
                         <div class="rq-search-single">
                            <div class="rq-search-content">
-                              <span class="rq-search-heading">Date départ</span>
+                              <span class="rq-search-heading">{{_('DEPARTURE DATE')}}</span>
                               <input autocomplete="off" type="text" name="startdate" class="rq-form-element datepicker" id="startdate" placeholder="Du" required />
                               <i class="ion-chevron-down datepicker-arrow"></i>
                            </div>
                         </div>
                         <div class="rq-search-single">
                            <div class="rq-search-content">
-                              <span class="rq-search-heading">Date retour</span>
+                              <span class="rq-search-heading">{{_('RETURN DATE')}}</span>
                               <input autocomplete="off" type="text" name="enddate" class="rq-form-element" id="enddate" placeholder="Au" required />
                               <i class="ion-chevron-down datepicker-arrow"></i>
                            </div>
                         </div>
                         <div class="rq-search-single">
                            <div class="rq-search-content last-child">
-                              <span class="rq-search-heading">Votre âge</span>
+                              <span class="rq-search-heading">{{_('YOUR AGE')}}</span>
                               <select name="age" class="category-option" >
                                  <option value="23">23</option>
                                  <option value="24" >24</option>
                                  <option value="25">25</option>
                                  <option value="26">26</option>
                                  <option value="27">27</option>
-                                 <option value="28">28 ou plus</option>
+                                 <option value="28">28 {{__("OR MORE")}}</option>
                               </select>
                            </div>
                         </div>
                         <div class="rq-search-single search-btn">
                            <div class="rq-search-content">
-                              <button class="rq-btn rq-btn-primary fluid-btn">Chercher <i class="arrow_right"></i></button>
+                              <button class="rq-btn rq-btn-primary fluid-btn">{{__('Search')}} <i class="arrow_right"></i></button>
                            </div>
                         </div>
                      </div>
@@ -49,15 +49,15 @@
                      <ul class="list-unstyled">
                         <li>
                            <span class="count-result" data-from="25" data-to="1623" data-speed="5000" data-refresh-interval="50"></span>
-                           <span class="count-category">Clients Satisfaits</span>
+                           <span class="count-category">{{__('Satisfied Customers')}}</span>
                         </li>
                         <li>
                            <span class="count-result" data-from="1" data-to="2048" data-speed="5000" data-refresh-interval="10"></span>
-                           <span class="count-category">Véhicules livrés</span>
+                           <span class="count-category">{{__('Vehicles Delivered')}}</span>
                         </li>
                         <li>
                            <span class="count-result" data-from="25" data-to="1760" data-speed="5000" data-refresh-interval="50"></span>
-                           <span class="count-category">Réservations Confirmées</span>
+                           <span class="count-category">{{__('Confirmed Reservations')}}</span>
                         </li>
                      </ul>
                   </div>
@@ -74,9 +74,10 @@
                            <div class="row">
                               <div class="col-md-6">
                                  <div class="mission-content">
-                                    <h1 class="rq-title">QUI SOMMES-NOUS?<span class="rq-dot">.</span><i class="rq-line"></i></h1>
+                                    <h1 class="rq-title">{{__('WHO ARE WE ?')}}<span class="rq-dot">.</span><i class="rq-line"></i></h1>
                                     <p style="text-align: justify;" class="mission-text">
-                                       CAR RENTAL est une Agence de location de voitures à Aéroport international Mohammed V de Casablanca. depuis 2016, Spécialisée dans la location de voitures à usage personnel, professionnel. la qualité de notre service, l&#039;amabilité de nos agents et le bon état de nos voitures sont les atouts qui nous distinguent.
+                                    {{__('CAR RENTAL is a car rental agency at Mohammed V International Airport in Casablanca. since 2016, Specialized in the rental of cars for personal and professional use. the quality of our service, the friendliness of our agents and the good condition of our cars are the assets that set us apart.')}}
+                                  
                                     </p>
                                     <address>
                                        <a href="#">Mohammed Alaoui</a>
@@ -94,8 +95,8 @@
                      </div>
                   </div>
                   <div class="rq-browse-section">
-                     <h1 class="rq-title">Nos meilleures véhicules<span class="rq-dot">.</span></h1>
-                     <a href="#">Voir tous les véhicules <i class="ion-ios-arrow-right"></i></a>
+                     <h1 class="rq-title">{{__('Our Best Vehicles')}}<span class="rq-dot">.</span></h1>
+                     <a href="#">{{__('See all vehicles')}} <i class="ion-ios-arrow-right"></i></a>
                   </div>
                </div>
             </div>
@@ -103,13 +104,13 @@
                <div class="rq-car-listing-tab">
                   <ul class="nav nav-tabs parent-tab" role="tablist">
                      <li role="presentation" class="active">
-                        <a href="#moins-cher" role="tab" data-toggle="tab">Moins cher</a>
+                        <a href="#moins-cher" role="tab" data-toggle="tab">{{__('CHEAPER')}}</a>
                      </li>
                      <li role="presentation">
-                        <a href="#recommander" role="tab" data-toggle="tab">Recommander</a>
+                        <a href="#recommander" role="tab" data-toggle="tab">{{__('RECOMMEND')}}</a>
                      </li>
                      <li role="presentation">
-                        <a href="#luxueux" role="tab" data-toggle="tab">Luxueux</a>
+                        <a href="#luxueux" role="tab" data-toggle="tab">{{__('LUXURIOUS')}}</a>
                      </li>
                   </ul>
                   <div class="tab-content">
@@ -312,7 +313,7 @@
                   </div>
                   <div class="rq-testimonial-section">
                      <div class="rq-testimonial-content">
-                        <h1 class="rq-title">Ce que disent nos clients<span class="rq-dot">.</span></h1>
+                        <h1 class="rq-title">{{__('What Our Customers Are Saying.')}}<span class="rq-dot">.</span></h1>
                         <div class=" owl-carousel testimonial-wrapper">
                            <div class="item">
                               <p class="testimoinal-text">
@@ -380,7 +381,7 @@
             </div>
             <div class="rq-call-to-action">
                <div class="container">
-                  <h2>Besoin d&#039;aide pour louer en ligne ? <a href="tel:#"># </a> </h2>
+                  <h2>{{__('Need help renting online? #')}} <a href="tel:#"># </a> </h2>
                </div>
             </div>
          </div>
