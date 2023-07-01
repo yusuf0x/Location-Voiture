@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Mail\ConfirmMail;
 use App\Models\Car;
 use App\Models\Reservation;
+use App\Models\User;
 use DateTime;
+use Illuminate\Console\View\Components\Confirm;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -58,6 +60,16 @@ class CheckOutController extends Controller
         $email = $request->email;
         $phone = $request->phone;
         $namec = $request->nameC;
+        $nbrejours = $request->nbrejours;
+        // $cin_path = $this->upload($request);
+        // $request->validate([
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        // ]);
+        // dd($request->hasFile('id_image'));
+        $image = $request->file('id_image');
+        $cin_path = time() . '_' . $image->getClientOriginalName();
+        $image->storeAs('public/images', $cin_path);
+        // dd($namec,$email,$phone);
         $user = [
             "name" => $namec,
             "email" => $email,
@@ -74,7 +86,14 @@ class CheckOutController extends Controller
                 "totalttc" => $total,
                 "car_id" => DB::table("cars")->where("name",$name)->first()->id,
                 "user_id" => $client_id,
-                "verification_token" => $token
+                "name_user" => $namec,
+                "email_user" => $email,
+                "phone_user" => $phone,
+                "CIN" => $cin_path,
+                "prix" => $prix,
+                "nbjours" => $nbrejours,
+                "verification_token" => $token,
+                "verification_token_expires_at" => now()->addMinute(2),
             ]
         );
         
@@ -91,20 +110,44 @@ class CheckOutController extends Controller
             "image" => $request->image,
             "nbrejours" => $request->nbrejours
         ];
-        // Mail::to($email)->send(new ConfirmMail($data,$token));
+        Mail::to($email)->send(new ConfirmMail($data,$token));
         return redirect("/confirmation")->with("data" ,$data );
     }
     public function verify($token)
     {
         $reservation = Reservation::where('verification_token', $token)->firstOrFail();
-        // dd($token);
-        if ($reservation->is_verified) {
-            // abort(404); // Or handle error as per your requirement
+        // dd($reservation->verification_token_expires_at,NOW(),$reservation->verification_token_expires_at > NOW());
+        if($reservation && $reservation->verification_token_expires_at > NOW()){
+            $reservation->is_verified = true;
+            $reservation->etat_reservation = "confirmed";
+            $reservation->save();
+            return redirect()->route('reservation.success');
         }
-        $reservation->is_verified = true;
-        $reservation->etat_reservation = "confirmed";
-        $reservation->save();
-        return redirect()->route('reservation.success');
+        // dd(NOW(),$reservation->verification_token_expires_at < NOW());
+        // token expired
+        if($reservation && $reservation->verification_token_expires_at < now()){
+            $newToken = Str::random(32);
+            $reservation->verification_token = $newToken;
+            $reservation->verification_token_expires_at = NOW()->addMinute(2); 
+            $reservation->save();
+            $user = User::where("id",$reservation->user_id)->first();
+            $car = Car::where("id",$reservation->car_id)->first();
+            $data = [
+                "name" => $car->name,
+                "startdate" => $reservation->date_debut,
+                "enddate"=> $reservation->date_fin,
+                "interval" => $reservation->nbrejours,
+                "prix" => $reservation->prix ,//prix,
+                "total" => $reservation->totalttc,
+                "reservation" => $reservation,
+                "nbrejours" => $reservation->nbjours
+            ];
+            // dd($reservation->email_user);
+            Mail::to($reservation->email_user )
+                ->send(new ConfirmMail($data,$newToken));
+            return redirect()->route('reservation.emailResent');
+        }
+        return redirect()->route("reservation.invalidToken");
     }
 
     public function success()
@@ -114,5 +157,14 @@ class CheckOutController extends Controller
     public function status(Reservation $reservation)
     {
         return view('reservation.status', compact('reservation'));
+    }
+    private function upload(Request $request){
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        $image = $request->file('cin');
+        $imageName = time() . '_' . $image->getClientOriginalName();
+        $image->storeAs('public/images', $imageName);
+        return $imageName;
     }
 }

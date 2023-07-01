@@ -19,6 +19,8 @@ class Reservation extends Model
         "car_id",
         "user_id",
         'verification_token', 'is_verified',
+        "email_user","phone_user","name_user","prix","nbjours","CIN",
+        "verification_token_expires_at"
     ];
     protected $casts = [
         'is_verified' => 'boolean',

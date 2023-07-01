@@ -15,7 +15,7 @@
 
 .reservation-status {
   background-color: #fff;
-  max-width: 400px;
+  max-width: 500px;
   margin: 40px auto;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -46,9 +46,9 @@ h1 {
     <h1>Reservation Status</h1>
     <!-- <p class="status">Confirmed</p> -->
     <!-- <p class="details">Your reservation is confirmed. We look forward to seeing you!</p> -->
-    <p>ID Reservation {{ $reservation->id }},</p>
+    <p><b>ID Reservation</b> : {{ $reservation->id }}</p>
     <p class="status">Your reservation status is: {{ $reservation->etat_reservation }}</p>
-    <p class="details">Your reservation is confirmed. We look forward to seeing you!</p>
+    <!-- <p class="details">Your reservation is confirmed. We look forward to seeing you!</p> -->
     <p>Thank you !</p>
   </div>
 </body>

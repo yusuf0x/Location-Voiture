@@ -19,5 +19,6 @@ class ConfirmationController extends Controller
         // print_r($data->image);
         return view("confirmation")->with("data",$data);
     }
+    
 
 }

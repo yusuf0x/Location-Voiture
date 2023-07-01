@@ -16,7 +16,7 @@ Route::get('/cars', [CarsController::class,"index"]);
 Route::post('/cars', [CarsController::class,"filter"]);
 Route::post('/checkout', [CheckOutController::class,"index"]);
 Route::post('/confirm', [CheckOutController::class,"confirm"]);
-Route::get('/confirmation', [ConfirmationController::class,"confirmation"]);
+Route::get('/confirmation', [ConfirmationController::class,"confirmation"])->name("confirmation");
 Route::get('/login', [AuthController::class,"login_view"]);
 Route::post('/login', [AuthController::class,"login"]);
 Route::get('/register', [AuthController::class,"register_view"]);
@@ -25,10 +25,14 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/reservation/verify/{token}', [CheckOutController::class, 'verify'])->name('reservation.verify');
 Route::view('/reservation/success', 'reservation.success')->name('reservation.success');
+Route::view('/reservation/emailResent', 'reservation.emailResent')->name('reservation.emailResent');
+
 Route::get('/reservation/status/{reservation}', [CheckOutController::class, 'status'])
     ->name('reservation.status');
+Route::get('/reservation/invalid-token', function () {
+        return view('reservation.invalidToken');
+})->name('reservation.invalidToken');
 
- 
 Route::get('/locale/{locale}', function (Request $request, $locale) {
     Session::put('locale', $locale);
     return redirect()->back();

@@ -40,6 +40,7 @@ class AuthController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
+            'phone' => "required"
         ]);
            
         $data = $request->all();
@@ -55,6 +56,7 @@ class AuthController extends Controller
         'email' => $data['email'],
         'password' => Hash::make($data['password']),
         "is_admin" => 0,
+        "phone" => $data['phone']
       ]);
     }    
     public function logout(Request $request)

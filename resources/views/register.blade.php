@@ -74,6 +74,14 @@
                 </div>
                 <div class="error error-txt">{{__('Email cannot be empty.')}}</div>
             </div>
+            <div class="field phone">
+                <div class="input-area">
+                    <input type="tel" name="phone" placeholder="{{__('Phone')}}">
+                    <i class="icon fa fa-phone"></i>
+                    <i class="error error-icon fa fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">{{__('Phone cannot be empty.')}}</div>
+            </div>
             <div class="field password">
                 <div class="input-area">
                     <input type="password" name="password" placeholder="{{__('Password')}}">

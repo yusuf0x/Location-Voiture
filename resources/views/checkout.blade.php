@@ -1,5 +1,4 @@
 @extends("layout")
-@if(Auth::check())
 @section("body")
 
 <div id="example"></div>
@@ -20,7 +19,7 @@
                </div>
                <div class="rq-cart-items">
                   <h4>{{__('Your chosen car')}}</h4>
-                  <form action="/confirm" method="POST">
+                  <form action="/confirm" method="POST" enctype="multipart/form-data">
                      @csrf
                   
                      <div class="row">
@@ -50,10 +49,10 @@
                                                
                                              </div>
                                           </td>
-                                          <td>  ${{App\Helpers\CurrencyHelper::convertCurrency($data['prix']) }}  {{Session::get("currency")}}</td>
+                                          <td>  {{App\Helpers\CurrencyHelper::convertCurrency($data['prix']) }}  {{Session::get("currency")}}</td>
                                           <td>{{$data['nbrejours']}} {{__('day')}}(s)</td>
                                           <td>
-                                          ${{App\Helpers\CurrencyHelper::convertCurrency($data['total']) }}  {{Session::get("currency")}}
+                                          {{App\Helpers\CurrencyHelper::convertCurrency($data['total']) }}  {{Session::get("currency")}}
                                           </td>
                                        </tr>
                                     </tbody>
@@ -70,13 +69,14 @@
                               <input type="text" name="nameC" class="rq-form-control small" placeholder="Votre nom" required>
                               <input type="email" name="email" class="rq-form-control small" placeholder="Adresse mail" required>
                               <input type="tel" name="phone" class="rq-form-control small" placeholder="Téléphone" required>
+                              <input type="file" name="id_image" class="rq-form-control small" placeholder="Passport/CIN/" required>
                               
                            </div>
                         </div>
                         <div class="col-md-4" style="margin-top:2rem;">
                            <div class="rq-grand-total">
                               <div class="rq-cart-options-title">
-                                 <h4>{{__("AMOUNT TO BE PAID")}} :{{$data['total']}} DH </h4>
+                                 <h4>{{__("AMOUNT TO BE PAID")}} :  {{App\Helpers\CurrencyHelper::convertCurrency($data['total']) }}  {{Session::get("currency")}}</h4>
                               </div>
                               <div class="rq-cart-options-content">
                                  <input type="hidden" name="price" value="280">
@@ -87,7 +87,7 @@
                                  <input type="hidden" name="enddate" value="{{$data['enddate']}}">
                                  <input type="hidden" name="interval" value="{{$data['nbrejours']}}">
                                  <input type="hidden" name="total" value="{{$data['total']}}">
-                                 <input type="hidden" name="client_id" value="{{Auth::user()->id}}">
+                                 <input type="hidden" name="client_id" value="{{Auth::user() ? Auth::user()->id : null }}">
                                  <input type="hidden" name="nbrejours" value="{{$data['nbrejours']}}">
                                  <button type="submit" class="rq-btn rq-btn-primary btn-large fluid">{{__('Validate your reservation')}}</button>
                               </div>
@@ -102,6 +102,3 @@
    </div>
 </div>
 @endsection
-@else
-<script>window.location = "/login";</script>
-@endif

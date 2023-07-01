@@ -20,11 +20,7 @@ class CurrencyHelper
     {
         $currency = Session::get("currency");
         
-        // Perform the currency conversion based on the selected currency
-        // You can use the "laravel-currency" package or any other method here
-        // and return the converted amount.
-        
-        // Example conversion using a fixed rate
+     
         switch ($currency) {
             case 'EUR':
                 $convertedAmount = $amount * 0.85; // Assuming 1 USD = 0.85 EUR
