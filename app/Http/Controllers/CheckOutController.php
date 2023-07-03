@@ -69,6 +69,9 @@ class CheckOutController extends Controller
         $cin = $request->file('cin');
         $cin_path = time() . '_' . $cin->getClientOriginalName();
         $cin->storeAs('public/images', $cin_path);
+        $permi = $request->file('permi');
+        $permi_path = time() . '_' . $permi->getClientOriginalName();
+        $permi->storeAs('public/images', $permi_path);
         // dd($namec,$email,$phone);
         $user = [
             "name" => $namec,
