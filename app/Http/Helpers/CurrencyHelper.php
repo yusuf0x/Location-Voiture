@@ -25,7 +25,7 @@ class CurrencyHelper
             case 'EUR':
                 $convertedAmount = $amount * 0.85; // Assuming 1 MAD = 0.85 EUR
                 break;
-            case 'USA':
+            case 'USD':
                 $convertedAmount = $amount * 0.10; // Assuming 1 MAD = 0.10 USD
                 break;
             default:
