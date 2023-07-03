@@ -1,6 +1,6 @@
 @extends("layout")
 @section("body")
-<div id="example"></div>
+
 <div id="main-wrapper">
          <header class="header">
             @include("nav")
@@ -376,7 +376,9 @@
             </div>
             <div class="container">
                <div class="rq-contact-us-map"> 
-                  <iframe id="map" style="border:0;" src="#" allowfullscreen="" loading="lazy"></iframe>
+                  <iframe id="map" style="border:0;"  src="https://maps.google.com/maps?q=safi,ensa&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+                  <!-- <iframe style="width: 100%; height: 250px;" src="https://maps.google.com/maps?q=safi,ensa&t=&z=13&ie=UTF8&iwloc=&output=embed" -->
+               <!-- frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
                </div>
             </div>
             <div class="rq-call-to-action">
@@ -386,5 +388,6 @@
             </div>
          </div>
 </div>
+<div id="example"></div>
 @endsection
 
