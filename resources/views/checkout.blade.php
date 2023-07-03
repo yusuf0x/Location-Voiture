@@ -49,10 +49,10 @@
                                                
                                              </div>
                                           </td>
-                                          <td>  {{App\Helpers\CurrencyHelper::convertCurrency($data['prix']) }}  {{Session::get("currency")}}</td>
+                                          <td>  {{$data['prix'] }}  {{Session::get("currency")}}</td>
                                           <td>{{$data['nbrejours']}} {{__('day')}}(s)</td>
                                           <td>
-                                          {{App\Helpers\CurrencyHelper::convertCurrency($data['total']) }}  {{Session::get("currency")}}
+                                          {{$data['total'] }}  {{Session::get("currency")}}
                                           </td>
                                        </tr>
                                     </tbody>
@@ -69,17 +69,21 @@
                               <input type="text" name="nameC" class="rq-form-control small" placeholder="Votre nom" required>
                               <input type="email" name="email" class="rq-form-control small" placeholder="Adresse mail" required>
                               <input type="tel" name="phone" class="rq-form-control small" placeholder="Téléphone" required>
-                              <input type="file" name="id_image" class="rq-form-control small" placeholder="Passport/CIN/" required>
+                              <!-- <input type="file" id="file-upload" /> -->
+                              <label for="file-upload">CIN/Passport:</label>
+                              <input type="file" name="cin" id="file-upload" class="rq-form-control small" placeholder="Passport/CIN/" required>
+                              <label for="file-upload">{{__("Driver's license")}}:</label>
+                              <input type="file" name="permi" class="rq-form-control small" placeholder="Permi de Conduire " required>
                               
                            </div>
                         </div>
                         <div class="col-md-4" style="margin-top:2rem;">
                            <div class="rq-grand-total">
                               <div class="rq-cart-options-title">
-                                 <h4>{{__("AMOUNT TO BE PAID")}} :  {{App\Helpers\CurrencyHelper::convertCurrency($data['total']) }}  {{Session::get("currency")}}</h4>
+                                 <h4>{{__("AMOUNT TO BE PAID")}} :  {{$data['total']}}  {{Session::get("currency")}}</h4>
                               </div>
                               <div class="rq-cart-options-content">
-                                 <input type="hidden" name="price" value="280">
+                                 <input type="hidden" name="price" value="{{$data['prix']}}">
                                  <input type="hidden" name="image" value="{{$data['image']}}">
                                  <input type="hidden" name="name" value="{{$data['name']}}">
                                  <input type="hidden" name="prix" value="{{$data['prix']}}">

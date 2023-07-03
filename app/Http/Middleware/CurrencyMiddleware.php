@@ -8,13 +8,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CurrencyMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
+        $currency = $request->query('currency');
+
+        if ($currency) {
+            session(['currency' => $currency]);
+        }
+
         return $next($request);
     }
 }

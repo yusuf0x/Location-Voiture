@@ -17,7 +17,15 @@ return [
     |            "memcached", "redis", "dynamodb", "array"
     |
     */
-
+    'defaults' => [
+        'driver' => 'file',
+        // Other configuration options
+    ],
+    'default_values' => [
+        'currency' => 'MAD',
+        'locale' => 'fr',
+        // 'my_custom_key' => 'my_custom_value',
+    ],
     'driver' => env('SESSION_DRIVER', 'file'),
 
     /*

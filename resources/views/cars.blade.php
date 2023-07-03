@@ -119,13 +119,13 @@
          <div class="data">
             <div class="rq-car-listing-wrapper">
                <div class="rq-listing-choose rq-listing-list">
-                  <form id="reservation-form" action="/checkout" method="POST">
-                     @csrf
+                  <!-- <form id="reservation-form" action="/checkout" method="POST"> -->
+                     
                      <div class="row" id="test">
 
                      </div>
                        
-                  </form>
+                  <!-- </form> -->
                   </div>
                   <div class="text-center">
 
@@ -150,6 +150,7 @@ var cars = [];
 @foreach ($data["all_cars"] as $car)
     cars.push(
       { 
+      "id":"{{$car->id}}",
       name:"{{ $car->name }}", 
       gasoil:"{{ $car->gasoil }}" ,
       marque:"{{$car->marque}}",
@@ -159,7 +160,7 @@ var cars = [];
       places:"{{$car->places}}",
       valises:"{{$car->valises}}",
       portes:"{{$car->portes}}",
-      prix:"{{$car->prix}}"  
+      prix:"{{App\Helpers\CurrencyHelper::convertCurrency($car->prix) }}"  
     
    }
     );
@@ -194,12 +195,14 @@ function updateFilteredCars(carType,gasoilType) {
       carElement.classList.add("col-md-4","col-sm-6");
      
       var htmlCOntent = `
+<form id="reservation-form" action="/checkout" method="POST">
+@csrf
 <div class="listing-single">
    <div class="listing-img">
       <img src="storage/${ car.image }" alt="${ car.name }">
    </div>
    <div class="listing-details">
-      <h3 class="car-name"><a href="/checkout">${car.name}</a></h3>
+      <h3 class="car-name"><a href="#">${car.name}</a></h3>
       <ul class="rating-list">
          <li><i class="ion-star"></i></li>
          <li><i class="ion-star"></i></li>
@@ -227,10 +230,11 @@ function updateFilteredCars(carType,gasoilType) {
    <input type="hidden" name="enddate" value="{{$data['enddate']}}">
    <input type="hidden" name="id" value="${car.id}">
    <input type="hidden" name="selected_car_id" value="">
-   <input href="/checkout"
+   <input 
       style="display: inline-block; background-color: orange; color: white; padding: 10px 20px; text-align: center; text-decoration: none; font-size: 15px; border-radius: 5px; border: none; transition: background-color 0.3s ease;" type="submit" value="Réserver"> 
    </div>
-</div>`;
+</div>
+</form>`;
       carElement.innerHTML = htmlCOntent;
     container.appendChild(carElement);
   });

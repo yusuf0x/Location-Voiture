@@ -23,10 +23,10 @@ class CurrencyHelper
      
         switch ($currency) {
             case 'EUR':
-                $convertedAmount = $amount * 0.85; // Assuming 1 USD = 0.85 EUR
+                $convertedAmount = $amount * 0.85; // Assuming 1 MAD = 0.85 EUR
                 break;
-            case 'MAD':
-                $convertedAmount = $amount * 10.2; // Assuming 1 USD = 10.2 MAD
+            case 'USA':
+                $convertedAmount = $amount * 0.10; // Assuming 1 MAD = 0.10 USD
                 break;
             default:
                 $convertedAmount = $amount;

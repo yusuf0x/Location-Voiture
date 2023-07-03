@@ -34,7 +34,7 @@ class CheckOutController extends Controller
         $nbrejours = $interval->days + 1;
         $total = $nbrejours *(float)$prix; 
                                                 
-                                            
+        // dd($request);                                  
         $data = [
             "startdate" => $startdate,
             "enddate" => $enddate,
@@ -66,9 +66,9 @@ class CheckOutController extends Controller
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         // ]);
         // dd($request->hasFile('id_image'));
-        $image = $request->file('id_image');
-        $cin_path = time() . '_' . $image->getClientOriginalName();
-        $image->storeAs('public/images', $cin_path);
+        $cin = $request->file('cin');
+        $cin_path = time() . '_' . $cin->getClientOriginalName();
+        $cin->storeAs('public/images', $cin_path);
         // dd($namec,$email,$phone);
         $user = [
             "name" => $namec,

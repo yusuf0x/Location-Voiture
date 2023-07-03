@@ -52,11 +52,11 @@
                            </ul>
                         </li>
                         <li class="dropdown right-side-link">
-                           <a href="{{ route('changeCurrency', 'MAD') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Session::get("currency")}}<span class="ion-chevron-down"></span></a>
+                           <a href="{{ route('currency.change', 'MAD') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{Session::get("currency")}}<span class="ion-chevron-down"></span></a>
                            <ul class="dropdown-menu with-language">
-                              <li><a href="{{ route('changeCurrency', 'USD') }}">USD</a></li>
-                              <li><a href="{{ route('changeCurrency', 'EUR') }}">EUR</a></li>
-                              <li><a href="{{ route('changeCurrency', 'MAD') }}">MAD</a></li>
+                              <li><a href="{{ route('currency.change', 'USD') }}">USD</a></li>
+                              <li><a href="{{ route('currency.change', 'EUR') }}">EUR</a></li>
+                              <li><a href="{{ route('currency.change', 'MAD') }}">MAD</a></li>
                            </ul>
                         </li>
                      </ul>

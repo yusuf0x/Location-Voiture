@@ -15,7 +15,7 @@ Route::get('/', [HomeController::class,"index"]);
 Route::get('/cars', [CarsController::class,"index"]);
 Route::post('/cars', [CarsController::class,"filter"]);
 Route::post('/checkout', [CheckOutController::class,"index"]);
-Route::post('/confirm', [CheckOutController::class,"confirm"]);
+Route::post('/confirm', [CheckOutController::class,"confirm"])->name("checkout");
 Route::get('/confirmation', [ConfirmationController::class,"confirmation"])->name("confirmation");
 Route::get('/login', [AuthController::class,"login_view"]);
 Route::post('/login', [AuthController::class,"login"]);
@@ -43,7 +43,7 @@ Route::get('currency/change/{currency}', function ($currency) {
     return redirect()->back();
 })->name('currency.change');
 
-Route::get('/currency/{currency}', [CurrencyController::class,'changeCurrency'])->name('changeCurrency');
+// Route::get('/currency/{currency}', [CurrencyController::class,'changeCurrency'])->name('changeCurrency');
 
 Route::get('/about', function () {
     return view('about');

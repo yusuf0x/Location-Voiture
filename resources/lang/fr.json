@@ -64,5 +64,6 @@
     "day":"jour",
     "Name of car" :"Nom de voiture",
     "Status":"Statut",
-    "ID Reservation":"ID Réservation"
+    "ID Reservation":"ID Réservation",
+    "Driver's license":"Permi de Conduire "
 }

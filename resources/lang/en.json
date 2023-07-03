@@ -64,7 +64,8 @@
    "day":"day",
    "Name of car" :"Car name",
    "Status":"Status",
-   "ID Reservation":"ID Reservation"
+   "ID Reservation":"ID Reservation",
+   "Driver's license":"Driver's license"
 
 
 }
