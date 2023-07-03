@@ -80,7 +80,8 @@
                   <div class="rq-search-single search-btn">
                      <div class="rq-search-content">
                         <a href="/checkout?startdate={{$data['startdate']}}&enddate={{$data['enddate']}}">
-                           <button type="button" class="rq-btn rq-btn-primary fluid-btn" id="search">{{__('Search')}} <i class="arrow_right"></i></button></a>
+                           <button type="button" class="rq-btn rq-btn-primary fluid-btn" id="search">{{__('Search')}} <i class="arrow_right"></i></button>
+                        </a>
                      </div>
                   </div>
                </div>
